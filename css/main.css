@@ -2126,7 +2126,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 
 .pricing-table .plan-block .plan-block-price {
   font-family: "montserrat-medium", sans-serif;
-  font-size: 7.8rem;
+  font-size: 6rem;
   color: #151515;
   line-height: 1;
   margin-bottom: 0;
@@ -2135,7 +2135,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 .pricing-table .plan-block .plan-block-price sup {
   font-family: "montserrat-regular", sans-serif;
   font-size: 3rem;
-  top: -3.6rem;
+  top: -2.6rem;
   margin-right: 3px;
 }
 
