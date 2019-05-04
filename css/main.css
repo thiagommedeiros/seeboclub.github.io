@@ -795,8 +795,8 @@ button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
-  background: #309a3f;
-  border-color: #309a3f;
+  background: #1c72bd;
+  border-color: #2186de;
 }
 
 button.full-width,
@@ -2626,15 +2626,15 @@ footer ul a:visited {
   padding: 0;
   outline: 0;
   border: none;
-  width: 93px;
-  height: 21px;
-  background: url("../images/logo.png") no-repeat center;
-  background-size: 93px 21px;
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+.footer-logo img {
+  width: 200px
 }
 
 .footer-social-list {
