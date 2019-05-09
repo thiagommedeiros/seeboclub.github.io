@@ -113,9 +113,9 @@
         </div> <!-- end home-content -->
 
         <ul class="home-social-list">
-            <li>
+            <!-- <li>
                 <a href="#"><i class="fa fa-facebook-square"></i></a>
-            </li>
+            </li> -->
             <li>
                 <a href="https://api.whatsapp.com/send?phone=11940617171">
                     <i class="fa fa-whatsapp"></i>
@@ -335,11 +335,11 @@
 
                             <div class="plan-bottom-part">
                                 <ul class="plan-block-features">
-                                    <li><span>1</span> livro usado</li>
+                                    <li><span>1</span> livro </li>
                                     <li><span>1</span> brinde surpresa</li>	                  
                                 </ul>
 
-                                <a class="button button-primary large" href="http://pag.ae/7USDtwE2H">Assinar</a>
+                                <a class="button button-primary large" href="http://pag.ae/7UTAjuob2">Assinar</a>
                             </div>  
                      
                         </div>
@@ -355,11 +355,11 @@
 
                             <div class="plan-bottom-part">
                                 <ul class="plan-block-features">
-                                    <li><span>2</span> livros usados</li>
+                                    <li><span>2</span> livros </li>
                                     <li><span>1</span> brinde surpresa</li>	                  
                                 </ul>
 
-                                <a class="button button-primary large" href="http://pag.ae/7USDuEeG3">Assinar</a>
+                                <a class="button button-primary large" href="http://pag.ae/7UTAsdKzq">Assinar</a>
                             </div>  
                         </div>
                     </div>
@@ -374,11 +374,11 @@
 
                             <div class="plan-bottom-part">
                                 <ul class="plan-block-features">
-                                    <li><span>3</span> livros usados</li>
+                                    <li><span>3</span> livros</li>
                                     <li><span>1</span> brinde surpresa</li>	                  
                                 </ul>
 
-                                <a class="button button-primary large" href="http://pag.ae/7USDw8QKm">Assinar</a>
+                                <a class="button button-primary large" href="http://pag.ae/7UTAtqrEq">Assinar</a>
                             </div>  
                         </div>
                     </div>
@@ -550,9 +550,9 @@
                     </p>
 
                     <ul class="footer-social-list">
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-facebook-square"></i></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="https://api.whatsapp.com/send?phone=11940617171">
                                 <i class="fa fa-whatsapp"></i>
@@ -606,10 +606,41 @@
                             <input type="submit" name="subscribe" value="Enviar">
                 
                             <label for="mc-email" class="subscribe-message"></label>
+
+                            <div id="mc-message"></div>
                 
                         </form>
 
-                    </div>	      		
+                    </div>	 
+                    
+                    <script defer>
+                        document.querySelector('#mc-form').onsubmit = function (e) {
+                            e.preventDefault()
+                            this.disabled = true
+                            const email = document.querySelector('#mc-form .email').value
+                            if (!email) {
+                                alert('Preencha o email corretamente!')
+                                return;
+                            }          
+                            
+                            $('#mc-message').text('Cadastrado com sucesso!')
+                            fetch('https://digitalcom.herokuapp.com/user/subscribe', {
+                                method: 'post',
+                                headers: {
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    name: '',
+                                    email,
+                                    course: '',
+                                    cellphone: '',
+                                    newsletter: true,
+                                    whatsapp: false,
+                                })
+                            }).then()
+                        }
+                    </script>
                             
                 </div> <!-- end footer-subscribe -->         
 
@@ -626,9 +657,9 @@
 		         	<span>© Copyright seebo.club 2019.</span> 
 		         </div>
 
-		         <div id="go-top">
+		         <!-- <div id="go-top">
 		            <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up"></i></a>
-		         </div>         
+		         </div>          -->
 	      	</div>
 
       	</div> <!-- end footer-bottom -->     	
@@ -646,6 +677,72 @@
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+    <script type='text/javascript' data-cfasync='false'>
+    window.purechatApi = {
+        l: [],
+        t: [],
+        on: function() {
+            this.l.push(arguments);
+        }
+    };
+    (function() {
+        var done = false;
+        var script = document.createElement('script');
+        script.async = true;
+        script.type = 'text/javascript';
+        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+        document.getElementsByTagName('HEAD').item(0).appendChild(script);
+        script.onreadystatechange = script.onload = function(e) {
+            if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+                var w = new PCWidget({
+                    c: 'c4c70938-eea2-4965-b064-46264e71915e',
+                    f: true
+                });
+                done = true;
+            }
+            };
+        })();   
+    </script>
+
+    <script>
+        window.findChatIcon = setInterval(() => {
+            const chatIcon = document.getElementsByClassName('purechat-collapsed-image')[0]
+
+            if (chatIcon) {
+                chatIcon.style = 'background-image: url("http://localhost:5500/images/chat.png") !important; height: 89.5px !important; width: 100px !important; z-index: 9 !important; margin-top: -99.5px !important; margin-right: 0px !important;'
+                window.clearInterval(window.findChatIcon)
+
+                chatIcon.onclick = function() {
+                    setTimeout(function() {
+                        const title = document.getElementsByClassName('purechat-widget-title-link')[0]
+                        title.innerHTML = 'Estamos online!'
+                    }, 0)
+                }
+            }
+        },1)
+
+        window.findTitleChat = setInterval(() => {
+            const title = document.getElementsByClassName('purechat-widget-title-link')[0]
+            const subtitle = document.getElementsByClassName('purechat-enterinfo-container')[0]
+            const inputName = document.getElementsByClassName('purechat-firstname-input')[0]
+            const inputEmail = document.getElementsByClassName('purechat-email-input')[0]
+            const inputQuestion = document.getElementsByClassName('purechat-question-input')[0]
+            const buttonSubmit = document.getElementById('purechat-name-submit')
+            if (title && subtitle && inputName && inputQuestion && buttonSubmit) {
+                title.innerHTML = 'Estamos online!'
+                subtitle.style = 'padding: 10px 0 15px !important'
+                subtitle.innerHTML = 'Preencha seus dados e fale com um atendente'
+                inputName.placeholder = 'Nome'
+                inputEmail.placeholder = 'E-mail'
+                inputQuestion.placeholder = 'Dúvida'
+                buttonSubmit.value = 'Entrar no chat'               
+                window.clearInterval(window.findChatIcon)
+                window.clearInterval(window.findTitleChat)
+            }
+        }, 0)
+    </script>
+
 
 </body>
 
