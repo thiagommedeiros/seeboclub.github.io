@@ -43,6 +43,8 @@
 	================================================== -->
     <link rel="icon" type="image/png" href="favicon.png" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 </head>
 
 <body id="top">
@@ -153,7 +155,7 @@
                     Somos um clube de assinaturas para os amantes de livros usados!
                 </p>
                 <p class="lead">
-                    Enviaremos para você todos os meses um Box de Livros surpresa sobre os assuntos que você mais gosta!
+                    Enviaremos para você um Box de Livros surpresa todos os meses sobre os assuntos que você mais gosta!
                 </p>
                 <p class="lead">
                     Além disso, também enviamos alguns mimos (brindes) junto dos seus livros, como: marcadores de página, canetas, chaveiros, e muito mais!
@@ -293,6 +295,7 @@
 
         </div> <!-- end about-how -->
 
+        <!-- 
         <div class="row about-bottom-image">
 
            <img src="images/book-opened.png" 
@@ -302,10 +305,151 @@
                 sizes="(max-width: 2800px) 100vw, 2800px"
                 alt="App Screenshots" data-aos="fade-up">
 
-        </div>  <!-- end about-bottom-image -->       
+        </div>  
+        end about-bottom-image -->       
         
     </section> <!-- end about -->  
    
+    <section id="faq">
+        <div class="row pricing-content">
+
+            <div class="col-twelve pricing-intro">
+                <h1 class="intro-header" data-aos="fade-up">Dúvidas frequentes</h1>
+            </div>
+        </div>
+
+        <div id="modal-temas" class="modal">
+            <div class="modal-content-wrapper">
+                <p>Você poderá sugerir outros temas que não estão na nossa lista.</p>
+                <ul>
+                    <li>Ação</li>
+                    <li>Administração</li>
+                    <li>Agricultura</li>
+                    <li>Antropologia</li>
+                    <li>Arqueologia</li>
+                    <li>Arquitetura</li>
+                    <li>Artes</li>
+                    <li>Artesanato</li>
+                    <li>Astronomia</li>
+                    <li>Auto ajuda</li>
+                    <li>Aventura</li>
+                    <li>Biografias</li>
+                    <li>Biologia</li>
+                    <li>Ciência</li>
+                    <li>Ciências Exatas</li>
+                    <li>Cinema</li>
+                    <li>Comédia</li>
+                    <li>Comunicação</li>
+                    <li>Contos</li>
+                    <li>Decoração</li>
+                    <li>Direito</li>
+                    <li>Drama</li>
+                    <li>Economia</li>
+                    <li>Enciclopédias</li>
+                    <li>Engenharia</li>
+                    <li>Ensino de Idiomas</li>
+                    <li>Eróticos</li>
+                    <li>Esoterismo </li>
+                    <li>Espiritualidade</li>
+                    <li>Ficção Científica</li>
+                    <li>Filosofia</li>
+                    <li>Geografia</li>
+                    <li>Guerra</li>
+                    <li>História do Brasil </li>
+                    <li>História Geral </li>
+                    <li>Hobbies </li>
+                    <li>Horror</li>
+                    <li>Infanto Juvenil</li>
+                    <li>Informática </li>
+                    <li>Medicina </li>
+                    <li>Moda</li>
+                    <li>Música</li>
+                    <li>Pedagogia</li>
+                    <li>Poesia</li>
+                    <li>Política</li>
+                    <li>Psicologia</li>
+                    <li>Religião</li>
+                    <li>Romance</li>
+                    <li>Saúde</li>
+                    <li>Sexualidade</li>
+                    <li>Sociologia</li>
+                    <li>Suspense</li>
+                    <li>Teatro</li>
+                    <li>Tragédia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-twelve">
+                <div class="faq" data-collapse="accordion persist">
+                    <h2>
+                        1. Qual é o valor do frete?
+                    </h2>
+                    <p>
+                        O frete já está incluso no valor da assinatura.
+                    </p>
+
+                    <h2>
+                        2. Quais são os temas que posso escolher?
+                    </h2>
+                    <p>
+                        Nós temos praticamente todos os temas disponíveis, mas você pode conferir a lista completa <a href="#modal-temas" rel="modal:open">clicando aqui</a>. 
+                    </p>
+
+                    <h2>
+                        3. Em qual momento eu escolho os temas?
+                    </h2>
+                    <p>
+                        Logo abaixo temos os nossos planos de assinatura. Escolha seu plano e clique em "Assinar". Na próxima página você selecionará os temas desejados.
+                    </p>
+
+                    <h2>
+                        4. Eu já tenho alguns livros, como faço para não correr o risco de receber livros iguais aos que já tenho?
+                    </h2>
+                    <p>
+                        Através de nossa Área de Assinantes você poderá cadastrar os livros que você tem, é bem simples, você digita apenas o título do livro e o autor. Temos um sistema que nos indicará os livros que você já possui e os livros que já enviamos para você, sendo assim, você nunca receberá livros repetidos.
+                    </p>
+
+                    <h2>
+                        5. Os livros que vou receber serão meus ou preciso devolver?
+                    </h2>
+                    <p>
+                        Os livros serão seus, você não precisa nos devolver.
+                    </p>
+
+                    <h2>
+                        7. Eu posso escolher os livros que vou receber?
+                    </h2>
+                    <p>
+                        Não. Nossa proposta é enviar livros surpresa sobre os temas que você escolher.
+                    </p>
+
+                    <h2>
+                        8. Como funciona a assinatura no Cartão?
+                    </h2>
+                    <p>
+                        A cobrança é feita automaticamente todo o mês pelo sistema do PagSeguro.
+                    </p>
+
+                    <h2>
+                        9. Como funciona a assinatura no Boleto?
+                    </h2>
+                    <p>
+                        Enviamos mensalmente para o seu e-mail um boleto para pagamento, gerado pelo sistema do PagSeguro, até o dia 20 de cada mês. Caso você pague o boleto após o dia 20, não receberá a remessa que enviaremos entre o dia 26 e 28, ou seja, receberá somente no mês seguinte.
+                    </p>
+
+                    <h2>
+                        10. E se eu quiser cancelar? Eu pago alguma multa?
+                    </h2>
+                    <p>
+                        Não existe multa. Você pode cancelar sua assinatura a qualquer momento. No caso de cartão, você pode cancelar através da Área de Assinantes ou entrando em contato conosco. No caso de boleto, no terceiro mês de não pagamento sua assinatura será cancelada automaticamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- pricing
     ================================================== -->
@@ -337,7 +481,8 @@
                                 <ul class="plan-block-features">
                                     <li><span>1</span> livro </li>
                                     <li><span>1</span> brinde surpresa</li>	   
-                                    <li><span>Frete incluso</span></li>	                  
+                                    <li><span>Frete incluso</span></li>	  
+                                    <li><span>Pagto.:</span> Cartão ou boleto</li>	                                    
                                 </ul>
 
                                 <a class="button button-primary large" href="http://pag.ae/7UTAjuob2">Assinar</a>
@@ -358,7 +503,8 @@
                                 <ul class="plan-block-features">
                                     <li><span>2</span> livros </li>
                                     <li><span>1</span> brinde surpresa</li>	 
-                                    <li><span>Frete incluso</span></li>	                    
+                                    <li><span>Frete incluso</span></li>	   
+                                    <li><span>Pagto.:</span> Cartão ou boleto</li>	                                     
                                 </ul>
 
                                 <a class="button button-primary large" href="http://pag.ae/7UTAsdKzq">Assinar</a>
@@ -378,14 +524,14 @@
                                 <ul class="plan-block-features">
                                     <li><span>3</span> livros</li>
                                     <li><span>1</span> brinde surpresa</li>	 
-                                    <li><span>Frete incluso</span></li>	                    
+                                    <li><span>Frete incluso</span></li>	       
+                                    <li><span>Pagto.:</span> Cartão ou boleto</li>	                    
                                 </ul>
 
                                 <a class="button button-primary large" href="http://pag.ae/7UTAtqrEq">Assinar</a>
                             </div>  
                         </div>
                     </div>
-
                 </div>
                 
                 <!-- <div class="row">
@@ -678,8 +824,13 @@
     <!-- Java Script
     ================================================== -->
     <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery.collapse.js"></script>
+    <script src="js/jquery.collapse_storage.js"></script>
+    <script src="js/jquery.collapse_cookie_storage.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
 
     <script type='text/javascript' data-cfasync='false'>
     window.purechatApi = {
