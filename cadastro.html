@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>seebo.club | Clube de assinaturas para amantes de Sebo</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+   ================================================== -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139691323-1');
+    </script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+</head>
+
+<body id="top">
+
+    <!-- header 
+   ================================================== -->
+   <header id="header" class="row">   
+
+   		<div class="header-logo">
+	        <a href="index.html">
+                <img src="images/logo.png" alt="seebo.club" />
+            </a>
+	    </div>
+
+	   	<nav id="header-nav-wrap">
+			<ul class="header-main-nav">
+				<li class="current"><a href="/#home" title="home">Home</a></li>
+                <li><a href="/#about" title="Sobre">Sobre</a></li>
+                <li><a href="/#howitworks" title="Como Funciona">Como Funciona</a></li>
+				<li><a href="/#pricing" title="Planos">Planos</a></li>
+			</ul>
+
+            <a href="/dash" title="sign-up" class="button button-primary cta">Área de Assinantes</a>
+		</nav>
+
+		<a class="header-menu-toggle" href="#"><span>Menu</span></a>    	
+   	
+   </header> <!-- /header -->
+
+    <style>
+        body {
+            height: auto;
+        }
+
+        #about {
+            padding-top: 15rem;
+            padding-bottom: 70px;
+        }
+
+        .about-intro {
+            border: none;
+            padding-bottom: 10rem;
+        }
+
+        .content {
+            width: 80%;
+        }
+
+        .field {
+            width: 100%;
+        }
+
+        label {
+            text-align: left;
+        }
+
+        #zipcode {
+            margin-bottom: 10px;
+        }
+
+        .error .field, .field.error {
+            border: 1px solid red !important;
+        }
+
+        .error .zipcodeMessage {
+            color: red !important;
+        }
+
+        #enterAddrButton {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #addressFields {
+            margin-top: 20px;
+        }
+
+        .genre-list {
+            padding: 0;
+            height: auto;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 0 30px 0;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .genre-list {
+                margin: 0 auto 30px auto;
+            }
+        }
+
+        .genre-list li,
+        .genre-list li:active,
+        .genre-list li:focus {
+            background-color: #e6e6e6;
+            color: #505050;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 16px;
+            padding: 6px 10px;
+            cursor: pointer;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .genre-list li:hover {
+            background-color: #464545;
+            color: white;
+        }
+
+        .genre-list li.active {
+            background-color: #2186de;
+            color: white;
+        }
+
+        .genre-list li i {
+            margin-right: 5px;
+        }
+
+        .wrapper-checkout-button {
+            text-align: right;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .wrapper-checkout-button {
+                text-align: center;
+            }
+        }
+
+        .wrapper-genre {
+            padding-bottom: 30px;
+        }
+    </style>
+
+    <section id="about">
+
+        <div class="row about-intro">
+            <div class="col-four">
+                <h1 class="intro-header">Dados pessoais</h1>
+            </div>
+            <div class="col-eight">
+                <div>
+                    <label>Nome:</label>
+                    <input id="inputName" type="text" placeholder="Digite seu nome e sobrenome" class="field" data-required="true">
+                </div>
+                <div>
+                    <label>Telefone (com DDD):</label>
+                    <input id="inputPhone" type="number" placeholder="Digite seu telefone" class="field" data-required="true">
+                </div>
+                <div id="inputEmailWrapper">
+                    <label>E-mail:</label>
+                    <input id="inputEmail" type="email" placeholder="Digite seu e-mail" class="field" data-required="true">
+                    <span id="inputEmailMessage"></span>
+                </div>
+            </div>                       
+        </div>
+
+        <div class="row about-intro">
+            <div class="col-four">
+                <h1 class="intro-header">Endereço de entrega</h1>
+            </div>
+            <div class="col-eight">
+                <div id="zipcodeWrapper">
+                    <label>CEP:</label>
+                    <input id="zipcode" type="number" placeholder="Digite apenas números" class="field" data-required="true">
+                    <span id="zipcodeMessage"></span>
+                    <button id="enterAddrButton" class="hidden">Digitar o endereço manualmente</button>
+                </div>                
+                <div id="addressFields" class="hidden">
+                    <div>
+                        <label>Endereço:</label>
+                        <input id="inputStreet" type="text" placeholder="Digite o endereço" class="field address" data-required="true">
+                    </div>
+                    <div>
+                        <label>Número:</label>
+                        <input id="inputNumber" type="number" placeholder="Digite número" class="field address" data-required="true">
+                    </div>
+                    <div>
+                        <label>Estado:</label>
+                        <input id="inputState" type="text" placeholder="Digite o estado" class="field address" data-required="true">
+                    </div>
+                    <div>
+                        <label>Cidade:</label>
+                        <input id="inputCity" type="text" placeholder="Digite a cidade" class="field address" data-required="true">
+                    </div>
+                    <div>
+                        <label>Bairro:</label>
+                        <input id="inputNeighborhood" type="text" placeholder="Digite o bairro" class="field address" data-required="true">
+                    </div>
+                    <div>
+                        <label>Complemento:</label>
+                        <input id="inputComplement" type="text" placeholder="Digite o complemento" class="field">
+                    </div>
+                </div>                
+            </div>                       
+        </div>
+
+        <div class="row about-intro wrapper-genre">
+            <div class="col-four">
+                <h1 class="intro-header">Lista de temas</h1>
+            </div>
+            <div class="col-eight">
+                <ul id="genre-list" class="genre-list">
+                    <li data-genre="Ação">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Ação
+                    </li>
+                    <li data-genre="Administração">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Administração
+                    </li>
+                    <li data-genre="Agricultura">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Agricultura
+                    </li>
+                    <li data-genre="Antropologia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Antropologia
+                    </li>
+                    <li data-genre="Arqueologia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Arqueologia
+                    </li>
+                    <li data-genre="Arquitetura">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Arquitetura
+                    </li>
+                    <li data-genre="Artes">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Artes
+                    </li>
+                    <li data-genre="Artesanato">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Artesanato
+                    </li>
+                    <li data-genre="Astronomia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Astronomia
+                    </li>
+                    <li data-genre="Auto ajuda">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Auto ajuda
+                    </li>
+                    <li data-genre="Aventura">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Aventura
+                    </li>
+                    <li data-genre="Biografias">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Biografias
+                    </li>
+                    <li data-genre="Biologia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Biologia
+                    </li>
+                    <li data-genre="Ciência">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Ciência
+                    </li>
+                    <li data-genre="Ciências Exatas">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Ciências Exatas
+                    </li>
+                    <li data-genre="Cinema">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Cinema
+                    </li>
+                    <li data-genre="Comédia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Comédia
+                    </li>
+                    <li data-genre="Comunicação">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Comunicação
+                    </li>
+                    <li data-genre="Contos">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Contos
+                    </li>
+                    <li data-genre="Decoração">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Decoração
+                    </li>
+                    <li data-genre="Direito">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Direito
+                    </li>
+                    <li data-genre="Drama">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Drama
+                    </li>
+                    <li data-genre="Economia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Economia
+                    </li>
+                    <li data-genre="Enciclopédias">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Enciclopédias
+                    </li>
+                    <li data-genre="Engenharia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Engenharia
+                    </li>
+                    <li data-genre="Ensino de Idiomas">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Ensino de Idiomas
+                    </li>
+                    <li data-genre="Eróticos">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Eróticos
+                    </li>
+                    <li data-genre="Esoterismo">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Esoterismo 
+                    </li>
+                    <li data-genre="Espiritualidade">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Espiritualidade
+                    </li>
+                    <li data-genre="Ficção Científica">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Ficção Científica
+                    </li>
+                    <li data-genre="Filosofia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Filosofia
+                    </li>
+                    <li data-genre="Geografia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Geografia
+                    </li>
+                    <li data-genre="Guerra">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Guerra
+                    </li>
+                    <li data-genre="História do Brasil">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        História do Brasil 
+                    </li>
+                    <li data-genre="História Geral ">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        História Geral 
+                    </li>
+                    <li data-genre="Hobbies ">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Hobbies 
+                    </li>
+                    <li data-genre="Horror">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Horror
+                    </li>
+                    <li data-genre="Infanto Juvenil">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Infanto Juvenil
+                    </li>
+                    <li data-genre="Informática ">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Informática 
+                    </li>
+                    <li data-genre="Medicina ">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Medicina 
+                    </li>
+                    <li data-genre="Moda">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Moda
+                    </li>
+                    <li data-genre="Música">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Música
+                    </li>
+                    <li data-genre="Pedagogia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Pedagogia
+                    </li>
+                    <li data-genre="Poesia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Poesia
+                    </li>
+                    <li data-genre="Política">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Política
+                    </li>
+                    <li data-genre="Psicologia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Psicologia
+                    </li>
+                    <li data-genre="Religião">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Religião
+                    </li>
+                    <li data-genre="Romance">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Romance
+                    </li>
+                    <li data-genre="Saúde">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Saúde
+                    </li>
+                    <li data-genre="Sexualidade">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Sexualidade
+                    </li>
+                    <li data-genre="Sociologia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Sociologia
+                    </li>
+                    <li data-genre="Suspense">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Suspense
+                    </li>
+                    <li data-genre="Teatro">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Teatro
+                    </li>
+                    <li data-genre="Tragédia">
+                        <i class="fa fa-fw fa-square-o"></i>
+                        Tragédia
+                    </li>
+                </ul>
+                <div>
+                    <label>Outros temas (opcional):</label>
+                    <input id="inputOtherGenres" type="text" placeholder="Digite outros temas" class="field">
+                </div>
+                <div>
+                    <label>Observação (opcional):</label>
+                    <input id="inputObservation" type="text" placeholder="Alguma observação?" class="field">
+                </div>
+            </div>                       
+        </div>
+
+        <div id="payment-wrapper" class="row about-intro wrapper-genre">
+            <div class="col-four">
+                <h1 class="intro-header">Forma de Pagamento</h1>
+            </div>
+            <div class="col-eight">
+                <div class="row about-intro">
+                    <div class="col-twelve">
+                        <div style="text-align: left; margin-bottom: 30px;">
+                            <label>
+                                <input type="radio" style="margin-right: 5px;" value="boleto" class="payment-method">
+                                Boleto Bancário
+                            </label>
+                            <span>
+                                Enviaremos para o seu e-mail um boleto para ativação de sua assinatura. 
+                                A partir do mês seguinte, enviaremos um boleto no dia 18 de cada mês, com vencimento para o dia 20. 
+                                Caso não realize o pagamento, sua assinatura ficará inativa e você deverá solicitar um novo boleto através da Área de Assinantes.
+                            </span>
+                        </div>
+                        <div style="text-align: left; margin-bottom: 30px;">
+                            <label>
+                                <input type="radio" style="margin-right: 5px;" value="cartão" class="payment-method">
+                                Cartão de Crédito
+                            </label>
+                            <span>
+                                A cobrança será automática na fatura do seu cartão mensalmente.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-twelve">
+                        <button id="checkoutButton" class="checkout-button">Ir para o pagamento</button>
+                        <div id="paymentError" class="hidden">Se o erro persistir entre em contato conosco: <a href="mailto: seeboclub@gmail.com">seeboclub@gmail.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="preloader"> 
+    	<div id="loader"></div>
+    </div>  
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/cep-promise/dist/cep-promise.min.js"></script>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        const serverUrl = 'http://localhost:8000'
+
+        let userEnteredAddr = false
+        let addrFound = false
+        let paymentMethod = null
+        let customerExists = false
+
+        inputEmail.onblur = function () {
+            fetch(`${serverUrl}/customer/exists`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: inputEmail.value
+                })
+            }).then(response => {
+                response.json().then(data => {
+                    if (data.exists) {
+                        customerExists = true
+                        inputEmail.focus()
+                        inputEmailWrapper.classList.add('error')
+                        inputEmailMessage.innerHTML = 'E-mail já cadastrado. Tente outro.'
+                        $('html, body').animate({
+                            scrollTop: $('#inputEmailWrapper').offset().top - 130
+                        }, 500).promise().then(function () {})
+                    } else {
+                        customerExists = false
+                        inputEmailWrapper.classList.remove('error')
+                        inputEmailMessage.innerHTML = ''
+                    }
+                })
+            })
+        }
+
+        zipcode.onkeyup = function() {
+            const inputZipcode = this
+            const value = inputZipcode.value
+            const len = value.length
+
+            zipcodeWrapper.classList.remove('error')
+            addressFields.classList.add('hidden')            
+
+            if (len > 8) {
+                addrFound = false
+                zipcodeWrapper.classList.add('error')
+                zipcodeMessage.innerHTML = 'CEP inválido. Digite apenas 8 caracteres.'
+                return
+            }
+
+            if (len < 8) {
+                addrFound = false
+                zipcodeMessage.innerHTML = 'Digite os 8 números do CEP'
+                return
+            }
+
+            if (len === 8) {
+                this.disabled = true
+                zipcodeMessage.innerHTML = 'Buscando endereço, aguarde...'
+                enterAddrButton.classList.add('hidden')
+
+                cep(value.toString())
+                    .then(function(response) {
+                        addrFound = true
+                        userEnteredAddr = false
+                        inputZipcode.disabled = false
+                        zipcodeMessage.innerHTML = ''
+
+                        inputStreet.value = response.street || ''
+                        response.street ? inputStreet.classList.remove('error') : inputStreet.classList.add('error')
+
+                        inputState.value = response.state || ''
+                        response.state ? inputState.classList.remove('error') : inputState.classList.add('error')
+
+                        inputCity.value = response.city || ''
+                        response.city ? inputCity.classList.remove('error') : inputCity.classList.add('error')
+
+                        inputNeighborhood.value = response.neighborhood || ''
+                        response.neighborhood ? inputNeighborhood.classList.remove('error') : inputNeighborhood.classList.add('error')
+
+                        inputNumber.classList.add('error')
+
+                        addressFields.classList.remove('hidden')
+                    })
+                    .catch(function(err) {
+                        addrFound = false
+                        inputZipcode.disabled = false
+                        zipcodeMessage.innerHTML = 'Endereço não encontrado!'
+                        enterAddrButton.classList.remove('hidden')
+                        inputZipcode.focus()
+                    })
+            }
+        }
+
+        enterAddrButton.onclick = function () {
+            userEnteredAddr = true
+            this.classList.add('hidden')
+            zipcodeMessage.innerHTML = ''
+            addressFields.classList.remove('hidden')
+        }
+
+        inputNumber.onkeyup = function () {
+            if (this.value.length > 0) {
+                this.classList.remove('error')
+            } else {
+                this.classList.add('error')
+            }
+        }
+
+        const genreButton = $('#genre-list li')
+        let chosenGenres = []
+
+        genreButton.click(function () {
+            const genre = this.dataset.genre
+            if(!$(this).hasClass('active')) {
+                chosenGenres.push(genre)
+                $(this)
+                    .addClass('active')
+                    .find('i')
+                    .removeClass('fa fa-fw fa-square-o')
+                    .addClass('fa fa-fw fa-check-square-o')
+            } else {
+                chosenGenres = chosenGenres.filter(item => item !== genre)
+                $(this)
+                    .removeClass('active')
+                    .find('i')
+                    .removeClass('fa fa-fw fa-check-square-o')
+                    .addClass('fa fa-fw fa-square-o')
+            }
+        })
+
+        $('.field').keyup(function() {
+            if ($(this).val().length > 0) {
+                $(this).removeClass('error')
+            }
+        })
+
+        $('.payment-method').click(function() {
+            paymentMethod = $(this).val()
+        })
+
+        checkoutButton.onclick = function (e) {
+            e.preventDefault()
+            
+            let hasErrors = false
+            let hasAddrErrors = false
+
+            $('.field').each(function(){
+                if ($(this).hasClass('address')) return
+    
+                if ($(this).data('required') === true) {
+                    const value = $(this).val()
+
+                    if (!value.length) {
+                        hasErrors = true
+                        $(this).addClass('error')
+                    }
+                }
+            })
+
+            if (customerExists) {
+                inputEmail.focus()
+                inputEmailWrapper.classList.add('error')
+                inputEmailMessage.innerHTML = 'E-mail já cadastrado. Tente outro.'
+                $('html, body').animate({
+                    scrollTop: $('#inputEmailWrapper').offset().top - 130
+                }, 500).promise().then(function () {})
+                
+                return
+            }
+
+            if (!addrFound && !userEnteredAddr && !hasErrors) {                
+                $('html, body').stop().animate({
+                    scrollTop: $('#zipcodeWrapper').offset().top - 200
+                }, 500).promise().then(function () {
+                    alert('Digite um CEP válido ou digite o endereço manualmente.')
+                })
+
+                return
+            }
+
+            if (userEnteredAddr || addrFound) {
+                $('.field.address').each(function(){
+                    if ($(this).data('required') === true) {
+                        const value = $(this).val()
+
+                        if (!value.length) {
+                            hasAddrErrors = true
+                            $(this).addClass('error')
+                        }
+                    }
+                })
+            }
+
+            if (hasErrors) {
+                $first = $('.field.error').eq(0)
+
+                $('html, body').stop().animate({
+                    scrollTop: $first.offset().top - 130
+                }, 500)
+
+                return
+            }
+
+            if (hasAddrErrors) {
+                $first = $('.field.error.address').eq(0)
+
+                $('html, body').stop().animate({
+                    scrollTop: $first.offset().top - 130
+                }, 500)
+
+                return
+            }
+
+            if (chosenGenres.length < 10) {
+                $('html, body').stop().animate({
+                    scrollTop: $('#genre-list').offset().top - 200
+                }, 500).promise().then(function () {
+                    alert('Selecione pelo menos 10 temas')
+                })
+
+                return
+            }
+
+            if (!paymentMethod) {
+                $('html, body').animate({
+                    scrollTop: $('#payment-wrapper').offset().top - 130
+                }, 500).promise().then(function () {
+                    alert('Selecione uma forma de pagamento.')
+                })
+                
+                return
+            }
+
+            const paymentButton = this
+            paymentButton.disabled = true
+            paymentButton.innerText = 'Aguarde...'
+
+            const planId = window.localStorage.getItem('seeboclub-planId')
+
+            fetch(`${serverUrl}/customer/add`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: inputName.value,
+                    email: inputEmail.value,
+                    phone: inputPhone.value,
+                    zipcode: zipcode.value,
+                    street: inputStreet.value,
+                    number: inputNumber.value,
+                    state: inputState.value,
+                    city: inputCity.value,
+                    neighborhood: inputNeighborhood.value,
+                    complement: inputComplement.value,
+                    genres: chosenGenres,
+                    otherGenres: inputOtherGenres.value,
+                    observation: inputObservation.value,
+                    planId,
+                    paymentMethod,
+                })
+            }).then(function(response) {
+                response.json().then(function(data) {
+                    const checkoutUrl = data.data.checkoutUrl
+                    window.location.href = checkoutUrl
+                }).catch(function() {
+                    paymentButton.disabled = false
+                    paymentButton.innerText = 'Tentar novamente'
+                    paymentError.classList.remove('hidden')
+                    alert('Ops, ocorreu um erro, tente novamente.')
+                })
+            }).catch(function() {
+                paymentButton.disabled = false
+                paymentButton.innerText = 'Tentar novamente'
+                paymentError.classList.remove('hidden')
+                alert('Ops, ocorreu um erro, tente novamente.')
+            })
+        }
+    </script>
+
+</body>
+
+</html>
